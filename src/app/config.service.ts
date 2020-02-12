@@ -10,7 +10,7 @@ export interface Config {
   github: string;
   twitter: string;
   linkedin: string;
-  testmode: string;
+  testmode: boolean;
 }
 
 const httpOptions = {
