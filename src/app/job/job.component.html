@@ -1,0 +1,61 @@
+<h1>Pixl8 Job Application Form</h1>
+
+<mat-card *ngIf="response">
+  <mat-card-content>
+    {{response}}
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName" required>
+        <mat-error *ngIf="this.profileForm.get('fullName').value">{{getErrorMessage('fullName')}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="youremail@example.com" formControlName="email" required>
+        <mat-error *ngIf="this.profileForm.get('email').value">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Github</mat-label>
+        <input matInput formControlName="github">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Twitter</mat-label>
+        <input matInput formControlName="twitter">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Linkedin</mat-label>
+        <input matInput formControlName="linkedin">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Test Mode</mat-label>
+        <mat-select formControlName="testmode" required>
+          <mat-option value="true">True (default)</mat-option>
+          <mat-option value="false">False</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br> <br>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
